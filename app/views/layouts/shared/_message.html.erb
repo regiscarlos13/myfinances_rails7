@@ -1,0 +1,5 @@
+<% flash.each do |name, msg|%>
+  <% if msg.is_a?(String) %>
+    <div data-controller='message' data-hello-name-value="<%= message(name) %>"  data-hello-msg-value="<%= msg %>"></div>
+  <% end %>
+<% end %>
