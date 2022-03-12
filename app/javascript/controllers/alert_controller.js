@@ -1,6 +1,6 @@
+import Swal from 'sweetalert2'
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="destroyalert"
 export default class extends Controller {
     connect() {
         this.redirect = false

@@ -7,11 +7,14 @@ ruby '3.1.1'
 
 gem 'bootsnap', require: false
 gem 'cssbundling-rails'
+gem 'devise'
 gem 'jbuilder'
 gem 'jsbundling-rails'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.2', '>= 7.0.2.3'
+gem 'rubocop', '~> 1.26'
+gem 'simple_form', '~> 5.1'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
@@ -24,12 +27,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'solargraph'
-  gem 'web-console'
 end
 
 group :development do
+  gem 'web-console'
 end
-
-gem 'rubocop', '~> 1.26'
-
-gem 'simple_form', '~> 5.1'

@@ -1,0 +1,25 @@
+<main class="form-signin">
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <img class="mb-4" src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+    <h1 class="h3 mb-3 fw-normal">Login</h1>
+    <div class="form-floating">
+      <%= f.input :email,
+                required: false,
+                autofocus: true,
+                input_html: { autocomplete: "email" }, class: 'form-control' %>
+    </div>
+    <div class="form-floating">
+      <%= f.input :password,
+                required: false,
+                input_html: { autocomplete: "current-password" }, class: 'form-control' %>
+    </div>
+    <div class="checkbox mb-3">
+      <label>
+        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      </label>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit, "Log in", class: 'w-100 btn btn-lg btn-primary' %>
+    </div>
+  <% end %>
+</main>

@@ -1,18 +1,112 @@
 <!DOCTYPE html>
-<html>
+<html  lang="pt-BR">
   <head>
-    <title>Myfinances</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Sistema de Finanças Pessoais</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
+
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+
+
   </head>
   <body>
-    <%= render partial: 'layouts/shared/message'%>
-    <div class='main'>
-
-    </div> 
-    <%= yield %>
+    <%= render partial: 'layouts/shared/header' %>
+    <%= render partial: 'layouts/shared/message' %>
+    <div class="container-fluid">
+      <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+          <div class="position-sticky pt-3">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <li class="nav-item">
+                  <%= link_to  root_path, class: 'nav-link active' do%>
+                    <span class='bi bi-house-door'> Dashboard</span>
+                  <% end %>
+                </li>
+              </li>
+              <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                <span>Cadastro</span>
+                <a class="link-secondary" href="#" aria-label="Add a new report">
+                  <span data-feather="plus-circle"></span>
+                </a>
+              </h6>
+              <li class="nav-item">
+                <%= link_to  group_conts_path, class: 'nav-link' do %>
+                  <span class='bi bi-files'> Grupo de Contas</span>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to  root_path, class: 'nav-link' do %>
+                  <span class='bi bi-file'> Contas</span>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to  root_path, class: 'nav-link' do %>
+                  <span class='bi bi-speedometer2'> Dashboard</span>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to  root_path, class: 'nav-link' do %>
+                  <span class='bi bi-speedometer2'> Dashboard</span>
+                <% end %>
+              </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Saved reports</span>
+              <a class="link-secondary" href="#" aria-label="Add a new report">
+                <span data-feather="plus-circle"></span>
+              </a>
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  Current month
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  Last quarter
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  Social engagement
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  Year-end sale
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2"><%= @card_title %></h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <div class="btn-group me-2">
+                <%= @btn_new %>
+              </div>
+            </div>
+          </div>
+          <%= yield %>
+        </main>
+      </div>
+    </div>
   </body>
-</html>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous">
+  </html>
