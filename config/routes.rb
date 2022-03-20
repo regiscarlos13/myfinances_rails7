@@ -1,8 +1,14 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :budgets do
+    resources :budget_years
+  end
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :group_conts do
+    resources :conts
+  end
+
+  devise_for :users
+  root 'home#index'
 end

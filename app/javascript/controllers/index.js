@@ -4,5 +4,17 @@
 
 import { application } from "./application"
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+import AlertController from "./alert_controller.js"
+application.register("alert", AlertController)
+
+import BudgetController from "./budget_controller.js"
+application.register("budget", BudgetController)
+
+import DatatablesController from "./datatables_controller.js"
+application.register("datatables", DatatablesController)
+
+import MessageController from "./message_controller.js"
+application.register("message", MessageController)
+
+import Select2Controller from "./select2_controller.js"
+application.register("select2", Select2Controller)

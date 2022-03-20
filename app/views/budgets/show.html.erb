@@ -1,0 +1,5 @@
+<% @card_title = "Registro de #{@budget.model_name.human(count: 1)} - #{@budget.year.year} " %>
+
+<%= render "budget_years/new", budget: @budget %>
+<hr>
+<%= render 'budget_years/index' %>

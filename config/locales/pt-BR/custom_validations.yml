@@ -1,5 +1,26 @@
-pt-BR:  
+pt-BR:
   activerecord:
-    errors:
-      messages:
-        future_date: "deve ser uma data futura"
+    models:
+      group_cont:
+        one: Grupo de Conta
+        other: Grupo de Contas
+      cont:
+        one: Conta
+        other: Contas
+      budget:
+        one: Orçamento
+        other: Orçamento
+    attributes:
+      default: &default
+        id: Código
+      group_cont:
+        name: Conta
+        active: Ativar Conta?
+        tipo: Tipo
+      cont:
+        name: Conta
+        active: Ativar Conta?
+        tipo: Tipo
+      budget:
+        active: Ativo?
+        year: Ano

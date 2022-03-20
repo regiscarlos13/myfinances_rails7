@@ -1,0 +1,11 @@
+<% @card_title =  @group_conts.model_name.human(count: 2) %>
+<% @btn_new = btn_new(new_group_cont_path) %>
+<div class="table-responsive">
+  <%= table_for(@group_conts) do %>
+    <% field_table(@group_conts.model.human_attribute_name('tipo'))  { |f| f.tipo } %>
+    <% field_table(@group_conts.model.human_attribute_name('name'))  { |f| link_to f.name, f } %>
+    <% field_table(@group_conts.model.human_attribute_name('active'))  { |f| i18n_yes(f.active )} %>
+    <% btn_form %>
+  <% end %>
+</div>
+

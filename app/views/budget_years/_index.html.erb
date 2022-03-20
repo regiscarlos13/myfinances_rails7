@@ -1,0 +1,20 @@
+<div class="table-responsive">
+  <%= table_for(@budget.budget_years) do %>
+    <% field_table(@budget.budget_years.model.human_attribute_name('cont'))  { |f| views_tipo(f.cont.group_cont.tipo,f.cont.name) } %>
+    <% field_table(@budget.budget_years.model.human_attribute_name('january'))  { |f| number_to_currency(f.january,  format: '%n') } %>
+    <% field_table(@budget.budget_years.model.human_attribute_name('february'))  { |f| number_to_currency(f.february, format: '%n') } %>
+    <% field_table(@budget.budget_years.model.human_attribute_name('march'))  { |f| number_to_currency(f.march, format: '%n') } %>
+    <% field_table(@budget.budget_years.model.human_attribute_name('april'))  { |f| number_to_currency(f.april, format: '%n') } %>
+    <% field_table(@budget.budget_years.model.human_attribute_name('may'))  { |f| number_to_currency(f.may, format: '%n') } %>
+    <% field_table(@budget.budget_years.model.human_attribute_name('july'))  { |f| number_to_currency(f.june, format: '%n') } %>
+    <% field_table(@budget.budget_years.model.human_attribute_name('july'))  { |f| number_to_currency(f.july, format: '%n') } %>
+    <% field_table(@budget.budget_years.model.human_attribute_name('august'))  { |f| number_to_currency(f.august, format: '%n') } %>
+    <% field_table(@budget.budget_years.model.human_attribute_name('september'))  { |f| number_to_currency(f.september, format: '%n') } %>
+    <% field_table(@budget.budget_years.model.human_attribute_name('october'))  { |f| number_to_currency(f.october, format: '%n') } %>
+    <% field_table(@budget.budget_years.model.human_attribute_name('november'))  { |f| number_to_currency(f.november, format: '%n') } %>
+    <% field_table(@budget.budget_years.model.human_attribute_name('december'))  { |f| number_to_currency(f.december, format: '%n') } %>
+    <% field_table(@budget.budget_years.model.human_attribute_name('total'))  { |f|  views_tipo(f.cont.group_cont.tipo, number_to_currency(f.total, format: '%n' ))  } %>
+    <% field_table('')  { |f| btn_delete([f.budget, f]) } %>
+    <% field_table('')  { |f| btn_edit(edit_budget_budget_year_path(f.budget, f)) } %>
+  <% end %>
+</div>

@@ -11,7 +11,7 @@ SimpleForm.setup do |config|
   config.error_method = :to_sentence
   config.input_field_error_class = 'is-invalid'
   config.input_field_valid_class = 'is-valid'
-  
+
   config.wrappers :vertical_form, tag: 'div', class: 'form-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
     b.use :html5
     b.use :placeholder

@@ -1,0 +1,12 @@
+
+
+<div class="table-responsive">
+  <%= table_for(@group_cont.conts) do %>
+    <% field_table(@group_cont.conts.model.human_attribute_name('name'))  { |f| f.name } %>
+    <% field_table(@group_cont.conts.model.human_attribute_name('active'))  { |f| i18n_yes(f.active) } %>
+    <% field_table('')  { |f| btn_delete([f.group_cont, f]) } %>
+    <% field_table('')  { |f| btn_edit(edit_group_cont_cont_path(f.group_cont, f)) } %>
+    <%# btn_form %>
+  <% end %>
+</div>
+
