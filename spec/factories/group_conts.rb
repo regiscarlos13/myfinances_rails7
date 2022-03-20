@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :group_cont do
-    user { 1 }
-    type { 1 }
-    name { 'MyString' }
-    active { false }
+    user { User.first }
+    tipo { GroupCont.tipos.values.sample }
+    name { Faker::Commerce.product_name }
+    active { Faker::Boolean.boolean }
   end
 end

@@ -1,0 +1,9 @@
+<% @card_title = @budgets.model_name.human(count: 2) %>
+<% @btn_new = btn_new(new_budget_path) %>
+<div class="table-responsive">
+  <%= table_for(@budgets) do %>
+      <% field_table(@budgets.model.human_attribute_name('year'))  { |f| link_to f.year.year, f } %>
+      <% field_table(@budgets.model.human_attribute_name('active'))  { |f| i18n_yes(f.active) } %>
+    <% btn_form %>
+  <% end %>
+</div>

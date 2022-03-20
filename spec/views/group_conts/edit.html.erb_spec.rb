@@ -5,8 +5,8 @@ require 'rails_helper'
 RSpec.describe 'group_conts/edit', type: :view do
   before(:each) do
     @group_cont = assign(:group_cont, GroupCont.create!(
-                                        user: nil,
-                                        type: 1,
+                                        user: '56757980-1854-4d8a-a594-e567f81b2d20',
+                                        tipo: 1,
                                         name: 'MyString',
                                         active: false
                                       ))
@@ -18,7 +18,7 @@ RSpec.describe 'group_conts/edit', type: :view do
     assert_select 'form[action=?][method=?]', group_cont_path(@group_cont), 'post' do
       assert_select 'input[name=?]', 'group_cont[user_id]'
 
-      assert_select 'input[name=?]', 'group_cont[type]'
+      assert_select 'input[name=?]', 'group_cont[tipo]'
 
       assert_select 'input[name=?]', 'group_cont[name]'
 

@@ -12,7 +12,7 @@ export default class extends Controller {
         event.preventDefault()
         Swal.fire({
             icon: 'warning',
-            text: "You won't be able to revert this!",
+            text: "Você não reverterá mais essa ação!",
 
             title: 'Tem Certeza?',
             confirmButtonColor: '#3085d6',

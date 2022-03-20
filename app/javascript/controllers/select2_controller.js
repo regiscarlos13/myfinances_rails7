@@ -1,29 +1,12 @@
-import 'select2';
-import 'select2/dist/css/select2';
-import { Controller } from "stimulus";
+import { Controller } from "@hotwired/stimulus"
+
+
 
 export default class extends Controller {
+    static targets = ["tipo"]
 
     connect() {
-        $(document).on('select2:open', () => {
-            document.querySelector('.select2-search__field').focus();
-        });
-        this.select('#municipio')
-        this.select('#situacao')
-        this.select('#ais')
-        this.select('#conselho')
-        this.select('#mes')
-
-        $('.form-control.select').select2({
-            language: "pt-BR",
-
-        });
-    }
-
-    select(event) {
-        $(event).select2({
-            language: "pt-BR",
-            dropdownParent: $('#modal-show')
-        });
+        console.log('deu certo')
+            // $("#group_cont_tipo").select2()
     }
 }

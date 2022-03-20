@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module TableHelper
+module TableHelper # :nodoc:
   def table_for(records, id = nil, &blk)
     @table_columns = []
     blk.call

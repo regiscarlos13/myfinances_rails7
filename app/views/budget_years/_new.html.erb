@@ -1,0 +1,33 @@
+<%= simple_form_for([@budget, @budget_year], wrapper: :horizontal_form , 
+      wrapper_mappings: {  boolean:       :horizontal_boolean}, 
+      defaults: { input_html: { class: 'form-control-sm my-1 ms-2' }, 
+				label_html: { class: 'col-form-label my-1 col-form-label-sm' } }) do |f| %>
+  <div class="row"  data-controller="budget" >
+    <div class="col-xl-3">
+      <%= f.input :cont_id, collection:  @conts , label_method: :name_cont, prompt: false, label:'Conta' %>
+      <div class="mt-2 border-bottom mb-2 p-2"  >
+        <input type="checkbox" data-budget-target="check" data-action="click->budget#update_value" >
+        <label class="ms-2">Replicar a todos os meses?</label>
+        <input type="number" disabled style="width: 100px;"  min="0.0" placeholder="0.0" class="ms-3" 
+        data-budget-target="value" data-action="input->budget#value" />
+      </div>
+      <%= btn_save %>  <% @btn_new = btn_back(budgets_path) %>
+    </div>
+    <div class="col">
+      <div class="row row-cols-md-3 row-cols-sm-2 row-cols-xl-4">
+        <%= f.input :january, input_html: { min: '0', placeholder: '0.0', data: { budget_target: 'january' } } %>
+        <%= f.input :february, input_html: { min: '0', placeholder: '0.0', data: { budget_target: 'february' }} %>
+        <%= f.input :march, input_html: { min: '0', placeholder: '0.0', data: { budget_target: 'march' }} %>
+        <%= f.input :april, input_html: { min: '0', placeholder: '0.0', data: { budget_target: 'april' }} %>
+        <%= f.input :may, input_html: { min: '0', placeholder: '0.0', data: { budget_target: 'may' }} %>
+        <%= f.input :june, input_html: { min: '0', placeholder: '0.0', data: { budget_target: 'june' }} %>
+        <%= f.input :july, input_html: { min: '0', placeholder: '0.0', data: { budget_target: 'july' }} %>
+        <%= f.input :august, input_html: { min: '0', placeholder: '0.0', data: { budget_target: 'august' }} %>
+        <%= f.input :september, input_html: { min: '0', placeholder: '0.0', data: { budget_target: 'september' }} %>
+        <%= f.input :october, input_html: { min: '0', placeholder: '0.0', data: { budget_target: 'october' }} %>
+        <%= f.input :november, input_html: { min: '0', placeholder: '0.0', data: { budget_target: 'november' }} %>
+        <%= f.input :december, input_html: { min: '0', placeholder: '0.0', data: { budget_target: 'december' }} %>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -3,20 +3,14 @@
 module ApplicationHelper # :nodoc:
   include BtnHelper
   include TableHelper
-
-  def message(name)
-    case name
-    when 'notice' || 'success'
-      'success'
-    when 'alert'
-      'warning'
-    else
-      'error'
-    end
-  end
+  include MessageHelper
 
   def i18n_yes(field)
     field == true ? 'Sim' : 'Não'
+  end
+
+  def views_tipo(field, result)
+    field == 'Receita' ? content_tag(:span, result, class: 'link-primary fw-bolder') : content_tag(:span, result, class: 'link-danger fw-bolder')
   end
 
   #--------------------------------------------------------------

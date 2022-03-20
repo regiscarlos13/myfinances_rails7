@@ -1,15 +1,22 @@
-<%= simple_form_for(@group_cont, defaults: { input_html: { class: 'form-control-sm' }, 
-				label_html: { class: 'col-form-label col-form-label-sm' } }) do |f| %>
-  
-  <% if @group_cont.errors.any? %>
-    <div data-controller='message' 
-      data-message-name-value="error"  
-      data-message-msg-value="<%= pluralize(@group_cont.errors.count, "error") %> encontrado(s), por favor verifique:">
+<div class="container mt-5">
+  <div class="row justify-content-center" >
+    <div class="col-6 ">
+      <%= simple_form_for(@group_cont, wrapper: :horizontal_form , 
+      wrapper_mappings: {  boolean:       :horizontal_boolean}, 
+      defaults: { input_html: { class: 'form-control-sm my-2' }, 
+				label_html: { class: 'col-form-label my-2 col-form-label-sm' } }) do |f| %>
+        <% if @group_cont.errors.any? %>
+          <div data-controller='message' 
+              data-message-name-value="error"  
+              data-message-msg-value="<%= pluralize(@group_cont.errors.count, "error") %> encontrado(s), por favor verifique:">
+          </div>
+        <% end %>
+        <%= f.input :tipo, collection: GroupCont.tipos.keys,  prompt: false, input_html: { data: { controller: 'select2', 'select2-target': 'tipo'} } %>
+        <%= f.input :name %>
+        <%= f.input :active, input_html: { class: 'form-check-input' }, label: false %>
+        <hr>
+        <%= btn_save %>  <% @btn_new = btn_cancel(group_conts_path) %>
+      <% end %>
     </div>
-  <% end %>
-
-  <%= f.input :tipo, collection: GroupCont.tipos.keys, prompt: false %>
-  <%= f.input :name %>
-  <%= f.input :active %>
-  <%= btn_save %>  <% @btn_new = btn_cancel(group_conts_path) %>
-<% end %>
+  </div>
+</div>

@@ -1,19 +1,8 @@
-<% @card_title = "Registro de " + @group_cont.model_name.human(count: 1) %>
-<p>
-  <strong><%= translate 'activerecord.attributes.group_cont.user' %>:</strong>
-  <%= @group_cont.user %>
-</p>
-<p>
-  <strong><%= translate 'activerecord.attributes.group_cont.tipo' %>:</strong>
-  <%= @group_cont.tipo %>
-</p>
-<p>
-  <strong><%= translate 'activerecord.attributes.group_cont.name' %>:</strong>
-  <%= @group_cont.name %>
-</p>
-<p>
-  <strong><%= translate 'activerecord.attributes.group_cont.active' %>:</strong>
-  <%= @group_cont.active %>
-</p>
-<%= btn_edit(edit_group_cont_path(@group_cont)) %> | 
-<%= btn_back(group_conts_path) %>
+<% @card_title = "#{@group_cont.model_name.human(count: 1)} -  #{@group_cont.name} "  %>
+<div class="container">
+  <div class="row ">
+    <%= render "group_conts/conts", group_cont: @group_cont %>
+  </div>
+</div>
+<hr>
+<%= render 'conts/cont' %>

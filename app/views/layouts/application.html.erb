@@ -9,14 +9,6 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-
-
-
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
-
-
   </head>
   <body>
     <%= render partial: 'layouts/shared/header' %>
@@ -45,18 +37,8 @@
                 <% end %>
               </li>
               <li class="nav-item">
-                <%= link_to  root_path, class: 'nav-link' do %>
-                  <span class='bi bi-file'> Contas</span>
-                <% end %>
-              </li>
-              <li class="nav-item">
-                <%= link_to  root_path, class: 'nav-link' do %>
-                  <span class='bi bi-speedometer2'> Dashboard</span>
-                <% end %>
-              </li>
-              <li class="nav-item">
-                <%= link_to  root_path, class: 'nav-link' do %>
-                  <span class='bi bi-speedometer2'> Dashboard</span>
+                <%= link_to  budgets_path, class: 'nav-link' do %>
+                  <span class='bi bi-file'> Orçamento</span>
                 <% end %>
               </li>
             </ul>

@@ -4,7 +4,7 @@ class GroupContsController < ApplicationController # :nodoc:
   before_action :set_group_cont, only: %i[show edit update destroy]
 
   def index
-    @group_conts = GroupCont.all
+    @group_conts = current_user.group_conts.order(active: :desc)
   end
 
   def show; end
@@ -20,7 +20,7 @@ class GroupContsController < ApplicationController # :nodoc:
 
     respond_to do |format|
       if @group_cont.save
-        format.html { redirect_to group_cont_url(@group_cont), notice: 'Group cont was successfully created.' }
+        format.html { redirect_to group_cont_url(@group_cont), notice: 'Registro Criado com Sucesso.' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -30,7 +30,7 @@ class GroupContsController < ApplicationController # :nodoc:
   def update
     respond_to do |format|
       if @group_cont.update(group_cont_params)
-        format.html { redirect_to group_cont_url(@group_cont), notice: 'Group cont was successfully updated.' }
+        format.html { redirect_to group_cont_url(@group_cont), notice: 'Registro atualizado com Sucesso.' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -41,7 +41,7 @@ class GroupContsController < ApplicationController # :nodoc:
     @group_cont.destroy
 
     respond_to do |format|
-      format.html { redirect_to group_conts_url, notice: 'Group cont was successfully destroyed.' }
+      format.html { redirect_to group_conts_url, notice: 'Registro Removido com Sucesso.' }
     end
   end
 

@@ -6,14 +6,14 @@ RSpec.describe 'group_conts/index', type: :view do
   before(:each) do
     assign(:group_conts, [
              GroupCont.create!(
-               user: nil,
-               type: 2,
+               user: User.last,
+               tipo: 2,
                name: 'Name',
                active: false
              ),
              GroupCont.create!(
-               user: nil,
-               type: 2,
+               user: User.last,
+               tipo: 2,
                name: 'Name',
                active: false
              )

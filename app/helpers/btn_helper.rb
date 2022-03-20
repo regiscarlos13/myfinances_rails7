@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 module BtnHelper # :nodoc:
   def btn_new(link, options = nil)
     link_to link, class: 'btn  btn-outline-secondary btn-icon-split btn-sm', title: 'Novo Registro', remote: options do
@@ -20,7 +19,9 @@ module BtnHelper # :nodoc:
   end
 
   def btn_delete(link, options = nil)
-    link_to link, class: 'btn btn-outline-danger btn-icon-split btn-sm', method: :delete, data: { confirm: 'Voçê tem certeza quer apagar Registro?' }, title: 'Apagar Registro', remote: options do
+    button_to link, class: 'btn btn-outline-danger btn-icon-split btn-sm', method: :delete, data: {
+      controller: 'alert', action: 'click->alert#delete'
+    }, title: 'Apagar Registro', remote: options do
       content_tag(:span, content_tag(:i, nil, class: 'bi bi-trash'), class: 'icon text-white-50') + content_tag(:span, 'Apagar', class: 'text d-none d-lg-block d-xl-block')
     end
   end
@@ -38,7 +39,7 @@ module BtnHelper # :nodoc:
   end
 
   def btn_back(link, options = nil)
-    link_to link, class: 'btn btn-primary btn-icon-split btn-sm', title: 'Voltar', remote: options do
+    link_to link, class: 'btn btn-outline-primary btn-icon-split btn-sm', title: 'Voltar', remote: options do
       content_tag(:span, content_tag(:i, nil, class: 'bi bi-arrow-left'), class: 'icon text-white-50') + content_tag(:span, 'Voltar', class: 'text d-none d-lg-block d-xl-block')
     end
   end
