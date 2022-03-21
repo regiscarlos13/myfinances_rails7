@@ -28,5 +28,4 @@ class BudgetYear < ApplicationRecord # :nodoc:
   def type_cont
     cont.group_cont.tipo
   end
-
 end

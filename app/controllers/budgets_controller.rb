@@ -23,11 +23,9 @@ class BudgetsController < ApplicationController # :nodoc:
 
     respond_to do |format|
       if @budget.save
-        format.html { redirect_to budget_url(@budget), notice: 'Budget was successfully created.' }
-        format.json { render :show, status: :created, location: @budget }
+        format.html { redirect_to budget_url(@budget), notice: 'Registro criado com Sucesso' }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @budget.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -35,11 +33,9 @@ class BudgetsController < ApplicationController # :nodoc:
   def update
     respond_to do |format|
       if @budget.update(budget_params)
-        format.html { redirect_to budget_url(@budget), notice: 'Budget was successfully updated.' }
-        format.json { render :show, status: :ok, location: @budget }
+        format.html { redirect_to budget_url(@budget), notice: 'Registro atualizado com Sucesso' }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @budget.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -48,8 +44,7 @@ class BudgetsController < ApplicationController # :nodoc:
     @budget.destroy
 
     respond_to do |format|
-      format.html { redirect_to budgets_url, notice: 'Budget was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to budgets_url, notice: 'Registro removido com Sucesoo' }
     end
   end
 

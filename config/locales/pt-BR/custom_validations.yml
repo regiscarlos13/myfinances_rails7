@@ -10,6 +10,9 @@ pt-BR:
       budget:
         one: Orçamento
         other: Orçamento
+      person:
+        one: Pessoa
+        other: Pessoas
     attributes:
       default: &default
         id: Código
@@ -24,3 +27,5 @@ pt-BR:
       budget:
         active: Ativo?
         year: Ano
+      person:
+        name: Nome

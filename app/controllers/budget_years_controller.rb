@@ -8,7 +8,7 @@ class BudgetYearsController < ApplicationController # :nodoc:
     @budget_year = @budget.budget_years.create(budget_year_params)
     respond_to do |format|
       if @budget_year.save
-        format.html { redirect_to @budget, notice: 'Budget_year was successfully created.' }
+        format.html { redirect_to @budget, notice: 'Registro criado com Sucesso' }
       else
         format.html { redirect_to @budget }
       end
@@ -21,7 +21,7 @@ class BudgetYearsController < ApplicationController # :nodoc:
 
   def destroy
     @budget_year.destroy
-    redirect_to @budget, status: 303, notice: 'budget_yeara Removida com Sucesso.'
+    redirect_to @budget, status: 303, notice: 'Registro removido com Sucesso'
   end
 
   def update

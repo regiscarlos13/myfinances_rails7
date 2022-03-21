@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module BtnHelper # :nodoc:
   def btn_new(link, options = nil)
     link_to link, class: 'btn  btn-outline-secondary btn-icon-split btn-sm', title: 'Novo Registro', remote: options do
