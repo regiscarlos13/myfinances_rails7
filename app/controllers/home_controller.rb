@@ -8,7 +8,7 @@ class HomeController < ApplicationController # :nodoc:
   end
 
   def budgets
-    @budget_receitas = @budget.budget_years.map { |x| x if x.type_cont == 'Receita' }.compact
-    @budget_despesas = @budget.budget_years.map { |x| x if x.type_cont == 'Despesa' }.compact
+    @budget_receitas = @budget&.budget_years&.map { |x| x if x.type_cont == 'Receita' }&.compact
+    @budget_despesas = @budget&.budget_years&.map { |x| x if x.type_cont == 'Despesa' }&.compact
   end
 end

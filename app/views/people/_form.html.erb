@@ -1,0 +1,24 @@
+<div class="container mt-5">
+  <div class="row justify-content-center" >
+    <div class="col-sm-6 ">
+      <%= simple_form_for(@person, 
+	  wrapper: :horizontal_form,
+	  defaults: { input_html: { class: 'form-control-sm my-2' }, 
+	  label_html: { class: 'col-form-label col-form-label-sm my-2' } }) do |f| %>
+     <% if @person.errors.any? %>
+          <div data-controller='message' 
+              data-message-name-value="error"  
+              data-message-msg-value="<%= pluralize(@person.errors.count, "error") %> encontrado(s), por favor verifique:">
+          </div>
+        <% end %>   
+        
+        
+        
+        <%= f.input :name %>
+        <%= f.input :tipo, collection: Person.tipos.keys,  prompt: false, input_html: { data: { controller: 'select2', 'select2-target': 'tipo'} } %>
+	  <hr>
+      <%= btn_save %>  <%  @btn_new = btn_cancel(people_path) %>
+      <% end %>
+    </div>
+  </div>
+</div>

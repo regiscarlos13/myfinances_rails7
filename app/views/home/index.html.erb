@@ -8,7 +8,7 @@
           <div class="col mr-2">
             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
               Previsão Receitas Anual</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800"><%= number_to_currency(@budget_receitas.pluck(:total).sum) %></div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800"><%= number_to_currency(@budget_receitas&.pluck(:total)&.sum) %></div>
           </div>
           <div class="col-auto">
             <i class="bi bi-currency-dollar fs-2 text-gray-300"></i>
@@ -25,7 +25,7 @@
           <div class="col mr-2">
             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
               Previsão Despesas Anual</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800"><%= number_to_currency(@budget_despesas.pluck(:total).sum) %></div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800"><%= number_to_currency(@budget_despesas&.pluck(:total)&.sum) %></div>
           </div>
           <div class="col-auto">
             <i class="bi bi-cash fs-2 text-gray-300"></i>
@@ -97,33 +97,33 @@
             </div>
           </div>
           <%= line_chart [ {name: "Receitas",  data: [
-                           ["Janeiro", @budget_receitas.pluck(:january).reject(&:blank?).sum],  
-                           ["Fevereiro", @budget_receitas.pluck(:february).reject(&:blank?).sum],
-                           ["Março", @budget_receitas.pluck(:march).reject(&:blank?).sum],
-                           ["Abril", @budget_receitas.pluck(:april).reject(&:blank?).sum],
-                           ["Maio", @budget_receitas.pluck(:may).reject(&:blank?).sum],
-                           ["Junho", @budget_receitas.pluck(:june).reject(&:blank?).sum],
-                           ["Julho", @budget_receitas.pluck(:july).reject(&:blank?).sum],
-                           ["Agosto", @budget_receitas.pluck(:august).reject(&:blank?).sum],
-                           ["Setembro", @budget_receitas.pluck(:september).reject(&:blank?).sum],
-                           ["Outubro", @budget_receitas.pluck(:october).reject(&:blank?).sum],
-                           ["Novembro", @budget_receitas.pluck(:november).reject(&:blank?).sum],
-                           ["Dezembro", @budget_receitas.pluck(:december).reject(&:blank?).sum]
+                           ["Janeiro", @budget_receitas&.pluck(:january)&.reject(&:blank?)&.sum],  
+                           ["Fevereiro", @budget_receitas&.pluck(:february)&.reject(&:blank?)&.sum],
+                           ["Março", @budget_receitas&.pluck(:march)&.reject(&:blank?)&.sum],
+                           ["Abril", @budget_receitas&.pluck(:april)&.reject(&:blank?)&.sum],
+                           ["Maio", @budget_receitas&.pluck(:may)&.reject(&:blank?)&.sum],
+                           ["Junho", @budget_receitas&.pluck(:june)&.reject(&:blank?)&.sum],
+                           ["Julho", @budget_receitas&.pluck(:july)&.reject(&:blank?)&.sum],
+                           ["Agosto", @budget_receitas&.pluck(:august)&.reject(&:blank?)&.sum],
+                           ["Setembro", @budget_receitas&.pluck(:september)&.reject(&:blank?)&.sum],
+                           ["Outubro", @budget_receitas&.pluck(:october)&.reject(&:blank?)&.sum],
+                           ["Novembro", @budget_receitas&.pluck(:november)&.reject(&:blank?)&.sum],
+                           ["Dezembro", @budget_receitas&.pluck(:december)&.reject(&:blank?)&.sum]
                             ]
                           }, 
                           {name: "Despesas", data: [
-                            ["Janeiro", @budget_despesas.pluck(:january).reject(&:blank?).sum], 
-                            ["Fevereiro", @budget_despesas.pluck(:february).reject(&:blank?).sum],
-                            ["Março", @budget_despesas.pluck(:march).reject(&:blank?).sum],
-                            ["Abril", @budget_despesas.pluck(:april).reject(&:blank?).sum],
-                            ["Maio", @budget_despesas.pluck(:may).reject(&:blank?).sum],
-                            ["Junho", @budget_despesas.pluck(:june).reject(&:blank?).sum],
-                            ["Julho", @budget_despesas.pluck(:july).reject(&:blank?).sum],
-                            ["Agosto", @budget_despesas.pluck(:august).reject(&:blank?).sum],
-                            ["Setembro", @budget_despesas.pluck(:september).reject(&:blank?).sum],
-                            ["Outubro", @budget_despesas.pluck(:october).reject(&:blank?).sum],
-                            ["Novembro", @budget_despesas.pluck(:november).reject(&:blank?).sum],
-                            ["Dezembro", @budget_despesas.pluck(:december).reject(&:blank?).sum]
+                            ["Janeiro", @budget_despesas&.pluck(:january)&.reject(&:blank?)&.sum], 
+                            ["Fevereiro", @budget_despesas&.pluck(:february)&.reject(&:blank?)&.sum],
+                            ["Março", @budget_despesas&.pluck(:march)&.reject(&:blank?)&.sum],
+                            ["Abril", @budget_despesas&.pluck(:april)&.reject(&:blank?)&.sum],
+                            ["Maio", @budget_despesas&.pluck(:may)&.reject(&:blank?)&.sum],
+                            ["Junho", @budget_despesas&.pluck(:june)&.reject(&:blank?)&.sum],
+                            ["Julho", @budget_despesas&.pluck(:july)&.reject(&:blank?)&.sum],
+                            ["Agosto", @budget_despesas&.pluck(:august)&.reject(&:blank?)&.sum],
+                            ["Setembro", @budget_despesas&.pluck(:september)&.reject(&:blank?)&.sum],
+                            ["Outubro", @budget_despesas&.pluck(:october)&.reject(&:blank?)&.sum],
+                            ["Novembro", @budget_despesas&.pluck(:november)&.reject(&:blank?)&.sum],
+                            ["Dezembro", @budget_despesas&.pluck(:december)&.reject(&:blank?)&.sum]
 
                           ] }
                           ] %>
@@ -150,7 +150,7 @@
               <div class=""></div>
             </div>
           </div>
-          <%= pie_chart  [['Receita', @budget_receitas.pluck(:total).sum],['Despesa', @budget_despesas.pluck(:total).sum]] %>
+          <%= pie_chart  [['Receita', @budget_receitas&.pluck(:total)&.sum],['Despesa', @budget_despesas&.pluck(:total)&.sum]] %>
         </div>
       </div>
     </div>
