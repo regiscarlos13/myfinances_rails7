@@ -16,8 +16,5 @@ application.register("datatables", DatatablesController)
 import MessageController from "./message_controller.js"
 application.register("message", MessageController)
 
-import NewFormController from "./new_form_controller.js"
-application.register("new-form", NewFormController)
-
 import Select2Controller from "./select2_controller.js"
 application.register("select2", Select2Controller)
