@@ -15,9 +15,7 @@ class BudgetYearsController < ApplicationController # :nodoc:
     end
   end
 
-  def edit
-    @conts = Cont.where(active: true).where.not(id: @budget.budget_years.pluck(:cont_id))
-  end
+  def edit; end
 
   def destroy
     @budget_year.destroy

@@ -1,0 +1,20 @@
+<% @card_title = @order.cont.name %>
+
+<p>
+  <strong><%= translate 'activerecord.attributes.order.person' %>:</strong>
+  <%= @order.person.name %>
+</p>
+<p>
+  <strong><%= translate 'activerecord.attributes.order.data' %>:</strong>
+  <%= @order.data %>
+</p>
+<p>
+  <strong><%= translate 'activerecord.attributes.order.total' %>:</strong>
+  <%= @order.total %>
+</p>
+<p>
+  <strong><%= translate 'activerecord.attributes.order.parcela' %>:</strong>
+  <%= @order.parcela %>
+</p>
+<%= btn_edit(edit_order_path(@order)) %> | 
+<%= btn_back(orders_path) %>

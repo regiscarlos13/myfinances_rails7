@@ -1,25 +1,26 @@
 <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
   <span>Cadastro</span>
 </h6>
-
 <li class="nav-item">
   <%= link_to  group_conts_path, class: 'nav-link' do %>
     <span class='bi bi-files'> Grupo de Contas</span>
   <% end %>
 </li>
-
 <li class="nav-item">
   <%= link_to  budgets_path, class: 'nav-link' do %>
     <span class='bi bi-file'> Orçamento</span>
   <% end %>
 </li>
-
 <li class="nav-item">
   <%= link_to  people_path, class: 'nav-link' do %>
     <span class='bi bi-people'> Pessoas</span>
   <% end %>
 </li>
-
+<li class="nav-item">
+  <%= link_to  orders_path, class: 'nav-link' do %>
+    <span class='bi bi-journal-plus'> Lançamentos</span>
+  <% end %>
+</li>
 
 </ul>
 <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">

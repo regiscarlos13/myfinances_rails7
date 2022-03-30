@@ -1,4 +1,14 @@
 <% @card_title = "Dashboard - #{@year}" %>
+
+<%= form_tag(sessions_path, method: :get ) do %>
+  <%= select_tag :year_select, options_from_collection_for_select(Budget.all, :years, :years, cookies.encrypted[:selected_year]) %>
+    <%= button_tag(type: 'submit', class: 'btn btn-primary', id: 'button_banco', name: nil) do %>
+      Salvar
+  <% end %>
+<% end %>
+
+
+
 <div class="row">
   <!-- Earnings (Monthly) Card Example -->
   <div class="col-xl-3 col-md-6 mb-4">
@@ -91,7 +101,6 @@
       <div class="card-body">
         <div class="chart-area">
           <div class="chartjs-size-monitor">
-            
             <div class="chartjs-size-monitor-shrink">
               <div class="mb-4"></div>
             </div>
@@ -127,7 +136,6 @@
 
                           ] }
                           ] %>
-          
         </div>
       </div>
     </div>

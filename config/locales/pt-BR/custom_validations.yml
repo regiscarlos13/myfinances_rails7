@@ -10,6 +10,9 @@ pt-BR:
       budget:
         one: Orçamento
         other: Orçamento
+      order:
+        one: Lançamento
+        other: Lançamentos
       person:
         one: Pessoa
         other: Pessoas
@@ -29,3 +32,6 @@ pt-BR:
         year: Ano
       person:
         name: Nome
+      order:
+        cont: Conta
+        person: Fonte

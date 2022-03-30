@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_21_135337) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_26_234407) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -65,6 +65,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_21_135337) do
     t.index ["user_id"], name: "index_group_conts_on_user_id"
   end
 
+  create_table "orders", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "cont_id", null: false
+    t.uuid "person_id", null: false
+    t.date "data"
+    t.decimal "total", precision: 9, scale: 2
+    t.integer "parcela", default: 1
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cont_id"], name: "index_orders_on_cont_id"
+    t.index ["person_id"], name: "index_orders_on_person_id"
+  end
+
   create_table "people", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.integer "tipo"
@@ -92,5 +104,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_21_135337) do
   add_foreign_key "budgets", "users"
   add_foreign_key "conts", "group_conts"
   add_foreign_key "group_conts", "users"
+  add_foreign_key "orders", "conts"
+  add_foreign_key "orders", "people"
   add_foreign_key "people", "users"
 end

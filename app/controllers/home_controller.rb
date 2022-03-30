@@ -2,13 +2,15 @@
 
 class HomeController < ApplicationController # :nodoc:
   def index
-    @year = params[:year].blank? ? Time.new.year : params[:year]
-    @budget = Budget.find_by(year: "#{@year}-01-01".."#{@year}-12-31")
-    budgets
+    budgets_receitas
+    budgets_despesas
   end
 
-  def budgets
+  def budgets_receitas
     @budget_receitas = @budget&.budget_years&.map { |x| x if x.type_cont == 'Receita' }&.compact
+  end
+
+  def budgets_despesas
     @budget_despesas = @budget&.budget_years&.map { |x| x if x.type_cont == 'Despesa' }&.compact
   end
 end

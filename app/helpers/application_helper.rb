@@ -9,6 +9,14 @@ module ApplicationHelper # :nodoc:
     field == true ? 'Sim' : 'Não'
   end
 
+  def disable_field(form, field)
+    if action_name == 'new'
+      form.input field
+    else
+      form.input field, disabled: true
+    end
+  end
+
   def views_tipo(field, result)
     field == 'Receita' ? content_tag(:span, result, class: 'link-primary fw-bolder') : content_tag(:span, result, class: 'link-danger fw-bolder')
   end

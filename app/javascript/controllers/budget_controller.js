@@ -31,21 +31,6 @@ export default class extends Controller {
         }
     }
 
-    //    disabled_inputs(event) {
-    //        this.januaryTarget.disabled = event
-    //        this.februaryTarget.disabled = event
-    //        this.marchTarget.disabled = event
-    //        this.aprilTarget.disabled = event
-    //        this.mayTarget.disabled = event
-    //        this.juneTarget.disabled = event
-    //        this.julyTarget.disabled = event
-    //        this.augustTarget.disabled = event
-    //        this.septemberTarget.disabled = event
-    //        this.octoberTarget.disabled = event
-    //        this.novemberTarget.disabled = event
-    //        this.decemberTarget.disabled = event
-    //    }
-
     value_inputs(event) {
         this.januaryTarget.value = event
         this.februaryTarget.value = event
@@ -60,13 +45,4 @@ export default class extends Controller {
         this.novemberTarget.value = event
         this.decemberTarget.value = event
     }
-
-
-
-
-
 }
-
-//get name() {
-//  return this.nameTarget.value
-//}

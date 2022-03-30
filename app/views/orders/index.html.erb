@@ -1,0 +1,14 @@
+<% @card_title = @orders.model_name.human(count: 2) %>
+<% @btn_new = btn_new(new_order_path) %>
+<div class="table-responsive">
+  <%= table_for(@orders) do %>
+    <div data-controller="reference"></div>
+    <% field_table(@orders.model.human_attribute_name('cont'))  { |f| link_to(views_tipo(f.cont.group_cont.tipo,  f.cont.name), f )  } %>
+    <% field_table(@orders.model.human_attribute_name('person'))  { |f| f.person.name } %>
+    <% field_table(@orders.model.human_attribute_name('data'))  { |f| data(f.data) } %>
+    <% field_table(@orders.model.human_attribute_name('parcela'))  { |f| f.parcela } %>
+    <% field_table(@orders.model.human_attribute_name('total'))  { |f| views_tipo(f.cont.group_cont.tipo, number_to_currency(f.total, format: '%n') ) } %>
+    <% field_table('P/R')  { |f| number_to_currency(f.total, format: '%n')} %>
+    <% btn_form %>
+  <% end %>
+</div>

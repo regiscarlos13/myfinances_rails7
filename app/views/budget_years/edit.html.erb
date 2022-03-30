@@ -1,12 +1,11 @@
 <% @card_title = 'Editar - ' + @budget_year.model_name.human(count: 1)%>
-
-  <%= simple_form_for([@budget, @budget_year], wrapper: :horizontal_form , 
+<%= simple_form_for([@budget, @budget_year], wrapper: :horizontal_form , 
       wrapper_mappings: {  boolean:       :horizontal_boolean}, 
       defaults: { input_html: { class: 'form-control-sm my-1 ms-2' }, 
 				label_html: { class: 'col-form-label my-1 col-form-label-sm' } }) do |f| %>
   <div class="row"  data-controller="budget" >
     <div class="col-xl-3">
-      <%= f.input :cont_id, collection:  @conts , label_method: :name_cont, prompt: false, label:'Conta' %>
+      <%= f.association :cont, label_method: :name_cont, prompt: false, label:'Conta', disabled: true %>
       <div class="mt-2 border-bottom mb-2 p-2"  >
         <input type="checkbox" data-budget-target="check" data-action="click->budget#update_value" >
         <label class="ms-2">Replicar a todos os meses?</label>
@@ -31,6 +30,6 @@
       </div>
     </div>
   </div>
-<hr>
-<%= btn_save %>  <% @btn_new = btn_back(@budget) %>
+  <hr>
+  <%= btn_save %>  <% @btn_new = btn_back(@budget) %>
 <% end %>

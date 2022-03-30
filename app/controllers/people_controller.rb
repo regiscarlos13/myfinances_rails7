@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class PeopleController < ApplicationController
+class PeopleController < ApplicationController # :nodoc:
   before_action :set_person, only: %i[show edit update destroy]
 
   def index
