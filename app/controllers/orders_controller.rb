@@ -36,7 +36,7 @@ class OrdersController < ApplicationController # :nodoc:
 
   def create_parcela
     if @parcela > 1
-      for i in 1..@parcela
+      (1..@parcela).each do |_i|
         order = @order.dup
         order.data =  (@data += 1.month)
         order.parcela = (@n += 1)

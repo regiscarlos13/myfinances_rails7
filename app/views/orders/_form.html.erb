@@ -9,11 +9,17 @@
               data-message-msg-value="<%= pluralize(@order.errors.count, "error") %> encontrado(s), por favor verifique:">
       </div>
     <% end %>
-    <%= f.association :cont, collection: @conts, prompt: false, label_method: :name_cont %>
-    <%= f.association :person, prompt: false %>
-    <%= f.input :data, as: :string, input_html: {type: 'date', value: Time.now.strftime("%F")} %>
-    <%= f.input :total, input_html: {min: 0.01} %>
-    <%= disable_field(f, :parcela) %>
+    <div class="row">
+      <div class="col">
+        <%= f.association :cont, collection: @conts, prompt: false, label_method: :name_cont %>
+        <%= f.association :person, prompt: false %>
+        <%= f.input :total, input_html: {min: 0.01} %>
+      </div>
+      <div class="col">
+        <%= f.input :data, as: :string, input_html: {type: 'date', value: Time.now.strftime("%F")} %>
+        <%= disable_field(f, :parcela) %>
+      </div>
+    </div>
     <hr>
     <%= btn_save %>  <%  @btn_new = btn_cancel(orders_path) %>
   <% end %>

@@ -8,7 +8,7 @@
     <% field_table(@orders.model.human_attribute_name('data'))  { |f| data(f.data) } %>
     <% field_table(@orders.model.human_attribute_name('parcela'))  { |f| f.parcela } %>
     <% field_table(@orders.model.human_attribute_name('total'))  { |f| views_tipo(f.cont.group_cont.tipo, number_to_currency(f.total, format: '%n') ) } %>
-    <% field_table('P/R')  { |f| number_to_currency(f.total, format: '%n')} %>
+    <% field_table('P/R')  { |f| '-' } %>
     <% btn_form %>
   <% end %>
 </div>

@@ -1,0 +1,14 @@
+<% @card_title = @payments.model_name.human(count: 2) %>
+<% @btn_new = btn_new(new_payment_path) %>
+<div class="table-responsive">
+  <%= table_for(@payments) do %>
+      <% field_table(@payments.model.human_attribute_name('user'))  { |f| f.user } %>
+      <% field_table(@payments.model.human_attribute_name('tipo'))  { |f| f.tipo } %>
+      <% field_table(@payments.model.human_attribute_name('banco'))  { |f| f.banco } %>
+      <% field_table(@payments.model.human_attribute_name('name'))  { |f| f.name } %>
+      <% field_table(@payments.model.human_attribute_name('agencia'))  { |f| f.agencia } %>
+      <% field_table(@payments.model.human_attribute_name('conta'))  { |f| f.conta } %>
+      <% field_table(@payments.model.human_attribute_name('conta_tipo'))  { |f| f.conta_tipo } %>
+    <% btn_form %>
+  <% end %>
+</div>
