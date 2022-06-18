@@ -5,7 +5,16 @@ class OrdersController < ApplicationController # :nodoc:
   before_action :set_cont, only: %i[edit new]
 
   def index
-    @orders = Order.where(data: "#{@year}-01-01".."#{@year}-12-31")
+    @meses = ApplicationRecord.mes
+    @orders = Order.where('EXTRACT(MONTH FROM data) = ?', params[:month].to_i)
+                   .where('extract(year from data) = ?', @year.to_i)
+    calculos_saldo
+  end
+
+  def calculos_saldo
+    @total_receitas = @orders.map { |x| x.total if x.tipo_status.eql?('Receita') }.compact_blank!.sum
+    @total_despesas = @orders.map { |x| x.total if x.tipo_status.eql?('Despesa') }.compact_blank!.sum
+    @saldo = @total_receitas - @total_despesas
   end
 
   def show; end
@@ -35,13 +44,13 @@ class OrdersController < ApplicationController # :nodoc:
   end
 
   def create_parcela
-    if @parcela > 1
-      (1..@parcela).each do |_i|
-        order = @order.dup
-        order.data =  (@data += 1.month)
-        order.parcela = (@n += 1)
-        order.save!
-      end
+    return unless @parcela > 1
+
+    (1..@parcela).each do |_i|
+      order = @order.dup
+      order.data =  (@data += 1.month)
+      order.parcela = (@n += 1)
+      order.save!
     end
   end
 

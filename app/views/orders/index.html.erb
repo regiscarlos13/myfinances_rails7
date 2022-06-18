@@ -1,5 +1,10 @@
 <% @card_title = @orders.model_name.human(count: 2) %>
+
 <% @btn_new = btn_new(new_order_path) %>
+
+<%= render partial: 'orders/filter_date' %>
+
+<hr>
 <div class="table-responsive">
   <%= table_for(@orders) do %>
     <div data-controller="reference"></div>
@@ -12,3 +17,10 @@
     <% btn_form %>
   <% end %>
 </div>
+<hr>
+
+
+<h6>Total Receitas: <%=  number_to_currency(@total_receitas)  %></h6>
+<h6>Total Despesas: <%=  number_to_currency(@total_despesas)  %></h6>
+<h6>Saldo: <%=  number_to_currency(@saldo)  %></h6>
+
